@@ -1,0 +1,7 @@
+<h1>新規タスク</h1>
+  <%= form_tag("/tasks/create") do %>
+    <div class="form">
+      <textarea name="title"><%= @task.title %></textarea>
+      <input type="submit" value="追加">
+    </div>
+  <% end %>
