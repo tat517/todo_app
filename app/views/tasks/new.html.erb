@@ -1,7 +1,8 @@
 <h1>新規タスク</h1>
-  <%= form_tag("/tasks/create") do %>
+  <%= form_tag(tasks_path, method: :post) do %>
     <div class="form">
-      <textarea name="title"><%= @task.title %></textarea>
+      <input name="title" value="<%= @task.title %>">
       <input type="submit" value="追加">
     </div>
   <% end %>
+  <%= link_to "戻る", tasks_path %>

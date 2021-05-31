@@ -1,0 +1,8 @@
+<h1>編集</h1>
+  <%= form_tag(task_path, method: :patch) do %>
+    <div class="form">
+      <input name="title" value="<%= @task.title %>">
+      <input type="submit" value="確定">
+    </div>
+  <% end %>
+  <%= link_to "戻る", tasks_path %>
