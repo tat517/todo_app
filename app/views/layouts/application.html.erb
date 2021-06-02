@@ -12,13 +12,18 @@
   <body>
     <header>
       <div class = "header-logo">
-        <%= link_to("ToDo", "/")%>
+        <%= link_to(" TOP", "/")%>
       </div>
       <div class = "header-menus">
         <ul>
-          <li><%= link_to("タスク管理", "/tasks")%></li>
-          <li><a href ="#">新規登録</a></li>
-          <li><a href ="#">ログイン</a></li>
+          <% if logged_in? %>
+            <li><%= link_to "タスク管理", tasks_path %></li>
+            <li><%= link_to "ユーザー情報", current_user %></li>
+            <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "ログイン", login_path %></li>
+            <li> <%= link_to "サインアップ", new_user_path %>
+          <% end %>
         </ul>
       </div>
     </header>
