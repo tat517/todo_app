@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
+  before_action :autheniticate_user
+  
   def index
     @tasks = Task.all
+    @task = Task.where(user_id: current_user.id)
   end
   
   def new
@@ -8,7 +11,8 @@ class TasksController < ApplicationController
   end
   
   def create
-    @task = Task.new(title: params[:title])
+    @task = Task.new(title: params[:title], user_id: current_user.id)
+    
     if @task.save
       redirect_to tasks_path #タスク管理画面にリダイレクト
     else
