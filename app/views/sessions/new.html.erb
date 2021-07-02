@@ -1,10 +1,18 @@
-<h1>ログイン</h1>
+<div class = "page-title">
+  <h1>ログイン</h1>
+</div>
 <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-  <%= f.label :email, "メールアドレス" %>
-  <%= f.email_field :email %>
-  
-  <%= f.label :password, "パスワード" %>
-  <%= f.password_field :password %>
-  
-  <%= f.submit "確定" %>
+  <table align = "center">
+  <tr>
+  <td><%= f.label :email, "メールアドレス" %></td>
+  <td><%= f.email_field :email, size: 35 %></td>
+  </tr>
+  <tr>
+  <td><%= f.label :password, "パスワード" %></td>
+  <td><%= f.password_field :password, size: 35 %></td>
+  </tr>
+  </table>
+  <div class = "confirm">
+  <%= f.submit "確定",class: "button"%>
+  </div>
 <% end %>

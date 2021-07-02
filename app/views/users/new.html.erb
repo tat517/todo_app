@@ -1,16 +1,42 @@
-<h1>新規登録</h1>
+<div class = "page-title">
+  <h1>新規登録</h1>
+</div>
 <%= form_with(model: @user, local: true) do |f| %>
-      <%= f.label :name, "ユーザーネーム" %>
-      <%= f.text_field :name %>
-
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email %>
-
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "パスワード（確認）" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "確定" %>
+<table align = "center">
+      <tr>
+        <td>
+          <%= f.label :name, "ユーザーネーム" %>
+        </td>
+        <td>
+          <%= f.text_field :name , placeholder: "変更はできません", size: 35 %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :email, "メールアドレス（架空のアドレスでOK！） " %>
+        </td>
+        <td>
+          <%= f.email_field :email, placeholder: "〇〇@〇〇.com", size: 35 %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :password, "パスワード" %>
+        </td>
+        <td>
+          <%= f.password_field :password, placeholder: "6文字以上", size: 35 %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :password_confirmation, "パスワード（確認）" %>
+        </td>
+        <td>
+          <%= f.password_field :password_confirmation, placeholder: "6文字以上", size: 35 %>
+        </td>
+      </tr>
+</table>
+<div class = "confirm">
+      <%= f.submit "確定", class: "button" %>
+</div>
 <% end %>

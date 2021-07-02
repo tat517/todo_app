@@ -1,8 +1,12 @@
-<h1>編集</h1>
+<div class = "page-title">
+  <h1>編集</h1>
+</div>
   <%= form_tag(task_path, method: :patch) do %>
     <div class="form">
-      <input name="title" value="<%= @task.title %>">
-      <input type="submit" value="確定">
+      <input name="title" value="<%= @task.title %>" size=35>
+      <input type="submit" value="確定" class="button">
     </div>
   <% end %>
-  <%= link_to "戻る", tasks_path %>
+<div class = "back">
+  <%= button_to "戻る", tasks_path, method: :get, class: "button" %>
+</div>

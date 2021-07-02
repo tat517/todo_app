@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :autheniticate_user
   
   def index
-    @tasks = Task.all
+    @tasks = Task.find_by(id: params[:id])
     @task = Task.where(user_id: current_user.id)
   end
   

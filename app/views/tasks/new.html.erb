@@ -1,8 +1,12 @@
-<h1>新規タスク</h1>
+<div class = "page-title">
+  <h1>新規タスク</h1>
+</div>
   <%= form_tag(tasks_path, method: :post) do %>
     <div class="form">
-      <input name="title" value="<%= @task.title %>">
-      <input type="submit" value="追加">
+      <input name="title" value="<%= @task.title %>" size="35">
+      <input type="submit" value="追加" class="button">
     </div>
   <% end %>
-  <%= link_to "戻る", tasks_path %>
+<div class = "back">
+  <%= button_to "戻る", tasks_path, method: :get, class: "button" %>
+</div>

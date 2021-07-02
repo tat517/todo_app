@@ -1,3 +1,13 @@
-<%= gravatar_for @user %>
-<p>ユーザーネーム:<%= @user.name %></p>
-<%= link_to "アカウント削除", user_path, method: :delete, data: { confirm: "削除してよろしいですか？" } %>
+<div class = "page-title">
+    <h1>ユーザー情報</h1>
+</div>
+<div class = "icon">
+    <%= gravatar_for @user %>
+</div>
+<div class = "user-info">
+    <p>ユーザーネーム：<%= @user.name %></p>
+    <p>メールアドレス：<%= @user.email %></p>
+</div>
+<div class = "user-delete">
+    <%= button_to "アカウント削除", user_path, method: :delete, class: "button",data: { confirm: "削除してよろしいですか？" } %>
+</div>
