@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   before_action :autheniticate_user, {only: [:destroy]}
-
+  before_action :forbid_login_user, only: [:new, :create]
+  
   def new
   end
 

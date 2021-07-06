@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   before_action :autheniticate_user
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  
   
   def index
     @tasks = Task.find_by(id: params[:id])
@@ -38,6 +40,13 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to tasks_path
+  end
+  
+  def ensure_correct_user
+    @task = Task.find_by(id: params[:id])
+    if @task.user_id != current_user.id
+      redirect_to tasks_path
+    end
   end
   
 end
